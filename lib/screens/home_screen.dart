@@ -104,9 +104,11 @@ class HomeScreen extends StatelessWidget {
                                 : null,
                             splashColor: whiteColor,
                             onTap: () {
-                              // controller.palySong(
-                                  // snapshot.data![index].uri, index);
-                              Get.to(() => const PlayerScreen());
+                              controller.palySong(
+                                  snapshot.data![index].uri, index);
+                              Get.to(() => PlayerScreen(
+                                    data: snapshot.data!,
+                                  ));
                             },
                           ),
                         ),
