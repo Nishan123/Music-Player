@@ -38,7 +38,8 @@ class PlayerScreen extends StatelessWidget {
                         artworkWidth: double.infinity,
                         nullArtworkWidget: const Icon(
                           Icons.music_note,
-                          size: 40,
+                          size: 50,
+                          color: Color.fromARGB(255, 151, 151, 151),
                         ),
                       ),
                     ),
@@ -50,7 +51,6 @@ class PlayerScreen extends StatelessWidget {
                     padding: const EdgeInsets.all(8),
                     alignment: Alignment.center,
                     decoration: const BoxDecoration(
-                        color: Colors.blue,
                         borderRadius:
                             BorderRadius.vertical(top: Radius.circular(25))),
                     child: Column(
@@ -62,7 +62,7 @@ class PlayerScreen extends StatelessWidget {
                           style: ourStyle(
                             family: semiBold,
                             size: 20,
-                            color: bgDarkColor,
+                            color: whiteColor,
                           ),
                         ),
                         Text(
@@ -70,18 +70,17 @@ class PlayerScreen extends StatelessWidget {
                           maxLines: 1,
                           textAlign: TextAlign.center,
                           style: ourStyle(
-                              family: light, size: 15, color: bgDarkColor),
+                              family: light, size: 15, color: whiteColor),
                         ),
                         const SizedBox(height: 30),
                         Obx(
                           () => Row(
                             children: [
-                              Text(controller.position.value),
                               Expanded(
                                   child: Slider(
                                       thumbColor: whiteColor,
                                       activeColor: Colors.white,
-                                      inactiveColor: bgColor,
+                                      inactiveColor: Colors.white30,
                                       min: const Duration(seconds: 0)
                                           .inSeconds
                                           .toDouble(),
@@ -92,18 +91,31 @@ class PlayerScreen extends StatelessWidget {
                                             newValue.toInt());
                                         newValue = newValue;
                                       })),
-                              Text(controller.duration.value),
+                            ],
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal:15),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                controller.position.value,
+                                style: const TextStyle(color: Colors.white),
+                              ),
+                              Text(controller.duration.value,
+                                  style: const TextStyle(color: Colors.white)),
                             ],
                           ),
                         ),
                         const SizedBox(
-                          height: 35,
+                          height: 50,
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
                             IconButton(
-                                color: bgDarkColor,
+                                color: whiteColor,
                                 iconSize: 50,
                                 onPressed: () {
                                   controller.palySong(
@@ -113,7 +125,7 @@ class PlayerScreen extends StatelessWidget {
                                 icon: const Icon(Icons.skip_previous_rounded)),
                             Obx(
                               () => IconButton(
-                                  color: bgDarkColor,
+                                  color: whiteColor,
                                   iconSize: 60,
                                   onPressed: () {
                                     if (controller.isPlaying.value) {
@@ -129,7 +141,7 @@ class PlayerScreen extends StatelessWidget {
                                       : const Icon(Icons.play_circle_fill)),
                             ),
                             IconButton(
-                                color: bgDarkColor,
+                                color: whiteColor,
                                 iconSize: 50,
                                 onPressed: () {
                                   controller.palySong(
