@@ -16,6 +16,9 @@ class PlayerScreen extends StatelessWidget {
       backgroundColor: bgColor,
       appBar: AppBar(
         iconTheme: const IconThemeData(color: Colors.white),
+        actions: [
+          IconButton(onPressed: (){}, icon: Icon(Icons.menu_outlined))
+        ],
       ),
       body: SafeArea(
         child: Padding(
@@ -36,10 +39,19 @@ class PlayerScreen extends StatelessWidget {
                         type: ArtworkType.AUDIO,
                         artworkHeight: double.infinity,
                         artworkWidth: double.infinity,
-                        nullArtworkWidget: const Icon(
-                          Icons.music_note,
-                          size: 50,
-                          color: Color.fromARGB(255, 151, 151, 151),
+                        nullArtworkWidget: Container(
+                          height: 150,
+                          width: 150,
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(20)
+                          
+                        ),
+                          child: const Icon(
+                            Icons.music_note,
+                            size: 90,
+                            color: Color.fromARGB(255, 151, 151, 151),
+                          ),
                         ),
                       ),
                     ),

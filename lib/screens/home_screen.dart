@@ -96,12 +96,20 @@ class HomeScreen extends StatelessWidget {
                             ),
                             trailing: controller.playIndex.value == index &&
                                     controller.isPlaying.value
-                                ? const Icon(
-                                    Icons.play_circle,
-                                    size: 25,
-                                    color: whiteColor,
-                                  )
-                                : null,
+                                ?  IconButton(
+                                    onPressed: () {},
+                                    icon: const Icon(
+                                      Icons.pause_circle,
+                                      size: 25,
+                                      color: whiteColor,
+                                    ))
+                                :  IconButton(
+                                    onPressed: () {},
+                                    icon: const Icon(
+                                      Icons.play_circle,
+                                      size: 25,
+                                      color: whiteColor,
+                                    )),
                             splashColor: whiteColor,
                             onTap: () {
                               controller.palySong(
